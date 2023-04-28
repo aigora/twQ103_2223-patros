@@ -8,7 +8,6 @@ Rocio Molina Ruiz,
 Carlota Calderon Garcia,  
 Maria Soldad Peña Benita,  
 Laura Rincón Gaitero, laaurarg 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
 
 ## Objetivos del trabajo
 
