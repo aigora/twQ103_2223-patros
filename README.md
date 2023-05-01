@@ -6,7 +6,7 @@
 Mario Calderon Santolaria, mariocalderonupm 
 Rocio Molina Ruiz,
 Carlota Calderon Garcia,  
-Maria Soldad Peña Benita,  
+Maria Soledad Peña Benita,  
 Laura Rincón Gaitero, laaurarg 
 
 ## Objetivos del trabajo
