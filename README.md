@@ -10,5 +10,7 @@ Maria Soledad Peña Benita,
 Laura Rincón Gaitero, laaurarg 
 
 ## Objetivos del trabajo
+Debemos crear un programa acerca del estudio de la pureza del agua en distintos barrios de Madrid. Para ello, desarrollaremos un programa que recolecte los datos menuales de cada barrio de manera que el usuario pueda consultarlos fácilmente. 
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+
+
