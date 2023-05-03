@@ -1,12 +1,18 @@
 # [Título del trabajo]
 
+Programa basado en el consumo del agua en los barrios de Madrid cuyo fin es proporionar informacion fácil y directa. 
+
 [Descripción breve del proyecto a realizar (2-3 frases).]
 
 ## Integrantes del equipo
-Mario Calderon Santolaria, mariocalderonupm /n
+Mario Calderon Santolaria, mariocalderonupm
+
 Rocio Molina Ruiz, rociomolinaruiz03
+
 Carlota Calderon Garcia,  
+
 Maria Soledad Peña Benita,  
+
 Laura Rincón Gaitero, laaurarg 
 
 ## Objetivos del trabajo
