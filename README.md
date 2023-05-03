@@ -4,7 +4,7 @@
 
 ## Integrantes del equipo
 Mario Calderon Santolaria, mariocalderonupm 
-Rocio Molina Ruiz,
+Rocio Molina Ruiz, rociomolinaruiz03
 Carlota Calderon Garcia,  
 Maria Soledad Peña Benita,  
 Laura Rincón Gaitero, laaurarg 
