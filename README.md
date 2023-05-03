@@ -3,7 +3,7 @@
 [Descripción breve del proyecto a realizar (2-3 frases).]
 
 ## Integrantes del equipo
-Mario Calderon Santolaria, mariocalderonupm 
+Mario Calderon Santolaria, mariocalderonupm /n
 Rocio Molina Ruiz, rociomolinaruiz03
 Carlota Calderon Garcia,  
 Maria Soledad Peña Benita,  
