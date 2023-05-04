@@ -2,8 +2,6 @@
 
 Programa basado en el consumo de agua en los barrios de Madrid, cuyo fin es proporionar informaci fa  fácil.
 
-[Descripción breve del proyecto a realizar (2-3 frases).]
-
 ## Integrantes del equipo
 Mario Calderon Santolaria, mariocalderonupm
 
