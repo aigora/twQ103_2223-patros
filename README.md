@@ -1,6 +1,6 @@
 # CONSUMO DE AGUA EN MADRID
 
-Programa basado en el consumo de agua en los barrios de Madrid, cuyo fin es proporionar informaci fa  fácil.
+Programa basado en el consumo de agua en los barrios de Madrid, cuyo fin es proporionar informacion fácil.
 
 ## Integrantes del equipo
 Mario Calderon Santolaria, mariocalderonupm
