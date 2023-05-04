@@ -9,9 +9,9 @@ Mario Calderon Santolaria, mariocalderonupm
 
 Rocio Molina Ruiz, rociomolinaruiz03
 
-Carlota Calderon Garcia,  
+Carlota Calderon Garcia, carlota.calderon
 
-Maria Soledad Peña Benita,  
+Maria Soledad Peña Benita,  solpeena
 
 Laura Rincón Gaitero, laaurarg 
 
