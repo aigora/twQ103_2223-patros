@@ -1,6 +1,6 @@
-#  
+# CONSUMO DE AGUA EN MADRID
 
-Programa basado en el consumo de agua en los barrios de Madrid, cuyo fin es proporionar informaci fa
+Programa basado en el consumo de agua en los barrios de Madrid, cuyo fin es proporionar informaci fa  fácil.
 
 [Descripción breve del proyecto a realizar (2-3 frases).]
 
