@@ -1,6 +1,6 @@
-# [Título del trabajo]
+#  
 
-Programa basado en el consumo de agua en los barrios de Madrid, cuyo fin es proporionar informacion fácil y directa. 
+Programa basado en el consumo de agua en los barrios de Madrid, cuyo fin es proporionar informaci fa
 
 [Descripción breve del proyecto a realizar (2-3 frases).]
 
