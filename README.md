@@ -5,7 +5,7 @@ Programa basado en el consumo de agua en los barrios de Madrid, cuyo fin es prop
 ## Integrantes del equipo
 Mario Calderon Santolaria, mariocalderonupm
 
-Rocio Molina Ruiz, rociomolinaruiz03
+Rocio Molina Ruiz, rociomolinaruiz
 
 Carlota Calderon Garcia, carlota.calderon
 
