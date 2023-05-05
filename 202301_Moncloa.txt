@@ -1,0 +1,21 @@
+parametros	ph	conductividad	turbidez	coliformes
+fuente 1	7,36	   112	         1	           0
+fuente 2	7,75	   269	         1	           0
+fuente 3	6,67	   194	         1	           0
+fuente 4	6	   116	         0	           0
+fuente 5	7,94	   117	         0             0
+fuente 6	6,5	   112	         0	           0
+fuente 7	7,44 	   203	         0	           0
+fuente 8	6,57	   269	         0	           1
+fuente 9	7,38	   244	         0	           1
+fuente 10	6,37	   219	         3	           1
+fuente 11	7,79	   201	         2	           1
+fuente 12	7,94	   121	         5	           0
+fuente 13	6,83	   141	         4	           1
+fuente 14	7,54 	   121	         0	           0
+fuente 15	6,59	   173	         0	           1
+fuente 16	7,29	   166	         1	           1
+fuente 17	7,37	   163	         0	           2
+fuente 18	7,29	   158	         0	           0
+fuente 19	7,46	   100	         0             0
+fuente 20	7,38	   103	         0	           0
