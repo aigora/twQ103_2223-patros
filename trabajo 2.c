@@ -26,11 +26,11 @@ int main(){
 		switch(respuesta2) {
 			case 1:
 				registrar();
-				menu2();
+				//menu2();
 				
 			case 2:
 				iniciosesion();
-				menu2();
+				//menu2();
 				
 		}
 	
@@ -67,18 +67,23 @@ void registrar() {
 	}
 	
 	// lee los datos del usuario
-	printf("Introduce tu nombre: \n");
-	scanf("%s", &reg.nombre);
-	printf("Introduce tu apellido: \n");
-	scanf("%s", &reg.apellido);
-	printf("Introduce tu edad: \n ");
+	printf("Introduce tu nombre: ");
+	fflush(stdin);
+	fgets(reg.nombre, 50, stdin);
+	printf("Introduce tu apellido: ");
+	fflush(stdin);
+	fgets(reg.apellido, 50, stdin);
+	printf("Introduce tu edad: ");
 	scanf("%d", &reg.edad);
-	printf("Introduce tu codigo postal: \n");
-	scanf("%s", &reg.codpostal);
-	printf("Introduce tu nombre de usuario: \n");
-	scanf("%s", &reg.nombreusuario);
-	printf("Introduce tu contrasena: \n");
-	scanf("%s", &reg.contrasena);
+	printf("Introduce tu codigo postal: ");
+	fflush(stdin);
+	fgets(reg.codpostal, 50, stdin);
+	printf("Introduce tu nombre de usuario: ");
+	fflush(stdin);
+	fgets(reg.nombreusuario, 50, stdin);
+	printf("Introduce tu contrasena: ");
+	fflush(stdin);
+	fgets(reg.contrasena, 50, stdin);
 	
 	fprintf(pf,"%s; %s; %d; %s; %s; %s \n", reg.nombre, reg.apellido, reg.edad, reg.codpostal, reg.nombreusuario, reg.contrasena );
 	
@@ -87,7 +92,7 @@ void registrar() {
 	
 	printf("Muchas gracias por registrarte. Recuerda tu usuario y contrasena para la proxima vez. \n");
 	
-	menu2();
+	//menu2();
 	
 }
 
@@ -104,15 +109,17 @@ void iniciosesion() {
 		return 1;
 	}
 	
-	printf("Introduzca su nombre de usuario: \n");
-	scanf("%s", &reg.nombreusuario);
-	printf("Introduzca su contraseña: \n");
-	scanf("%s", &reg.contrasena);
+	printf("Introduzca su nombre de usuario: ");
+	fflush(stdin);
+	fgets(reg.nombreusuario, 50, stdin);
+	printf("Introduzca su contrasena: ");
+	fflush(stdin);
+	fgets(reg.contrasena, 50, stdin);
 	
 	// comprueba si los datos son correctos o no
 	while (scanf(pf, "%*s %*s %*d %*s %s %s", &reg.nombreusuario, &reg.contrasena)==2) {
 		if (strcmp(reg.nombreusuario, reg.nombreusuario)==0 && strcmp(reg.contrasena, reg.contrasena)==0) {
-			printf("Bienvenido a AMB, %s!! \n", reg.nombreusuario);
+			printf("Bienvenido a AMB, %s! \n", reg.nombreusuario);
 			fclose(pf);
 			return 0;
 		}
@@ -125,11 +132,11 @@ void iniciosesion() {
 	
 }
 
-
+/*
 void menu2() {
 	
 	
-}
+} */
 
 
 
