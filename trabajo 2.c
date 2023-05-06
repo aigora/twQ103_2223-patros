@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+void registrar();
+void iniciosesion();
+void contrasenaOK();
 
 // funcion principal
 int main(){
@@ -104,6 +107,7 @@ void registrar() {
 
 void iniciosesion() {
 	
+	int numIntentos = 3, aux = 0;
 	FILE *pf;
 	registro reg;
 	sesion ses;
@@ -116,25 +120,45 @@ void iniciosesion() {
 		return 1;
 	}
 	
-	printf("Introduzca su nombre de usuario: ");
-	fflush(stdin);
-	fgets(ses.nombreusuario, 50, stdin);
-	printf("Introduzca su contrasena: ");
-	fflush(stdin);
-	fgets(ses.contrasena, 50, stdin);
+	/*do {
+		printf("Introduzca su nombre de usuario: ");
+		fflush(stdin);
+		fgets(ses.nombreusuario, 50, stdin);
+		printf("Introduzca su contrasena: ");
+		fflush(stdin);
+		fgets(ses.contrasena, 50, stdin);
+		
+	} while(strcmp(reg.nombreusuario, ses.nombreusuario)!=0 || strcmp(reg.contrasena, ses.contrasena)!=0); */
 	
 	// comprueba si los datos son correctos o no
-	if (strcmp(reg.nombreusuario, ses.nombreusuario)==0 && strcmp(reg.contrasena, ses.contrasena)==0) {
-		printf("Bienvenido a AMB, %s! \n", reg.nombreusuario);
-		fclose(pf);
-		return 0;
-	}
-	else {
-	printf("Datos incorrectos. Por favor, intentelo de nuevo.\n");
-	fclose(pf);
-	return 1;		
+	do {
+		printf("Introduzca su nombre de usuario: ");
+		fflush(stdin);
+		fgets(ses.nombreusuario, 50, stdin);
+		printf("Introduzca su contrasena: ");
+		fflush(stdin);
+		fgets(ses.contrasena, 50, stdin);
+		
+		if(strcmp(reg.nombreusuario, ses.nombreusuario)!=0 || strcmp(reg.contrasena, ses.contrasena)!=0) {
+			printf("Datos incorrectos. Por favor, intentelo de nuevo.\n");
+			numIntentos--;
+			aux = 1;
+			
+		}
+		else {
+			printf("Bienvenido a AMB, %s!\n", reg.nombre);
+			fclose(pf);
+			aux = 0;
+			return 1;
+		}
+		
+	} while(numIntentos > 0 && aux == 1);
+	
+	if(numIntentos == 0) {
+		printf("Has fallado 3 veces, intentalo mas tarde\n");
 	}	
 }
+
 
 /*
 void menu2() {
