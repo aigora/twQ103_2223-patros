@@ -52,10 +52,16 @@ typedef struct {
 	char contrasena[50];
 }registro;
 
+typedef struct {
+	char nombreusuario[50];
+	char contrasena[50];
+}sesion;
+
 void registrar() {
 	
 	FILE *pf;
 	registro reg;
+	sesion ses;
 	
 	
 	// se abre el archivo en modo escritura para guardar los datos
@@ -100,6 +106,7 @@ void iniciosesion() {
 	
 	FILE *pf;
 	registro reg;
+	sesion ses;
 	
 	//se abre el fichero de los datos y los lee
 	pf=fopen("datos.txt","r");
@@ -111,25 +118,22 @@ void iniciosesion() {
 	
 	printf("Introduzca su nombre de usuario: ");
 	fflush(stdin);
-	fgets(reg.nombreusuario, 50, stdin);
+	fgets(ses.nombreusuario, 50, stdin);
 	printf("Introduzca su contrasena: ");
 	fflush(stdin);
-	fgets(reg.contrasena, 50, stdin);
+	fgets(ses.contrasena, 50, stdin);
 	
 	// comprueba si los datos son correctos o no
-	while (scanf(pf, "%*s %*s %*d %*s %s %s", &reg.nombreusuario, &reg.contrasena)==2) {
-		if (strcmp(reg.nombreusuario, reg.nombreusuario)==0 && strcmp(reg.contrasena, reg.contrasena)==0) {
-			printf("Bienvenido a AMB, %s! \n", reg.nombreusuario);
-			fclose(pf);
-			return 0;
-		}
+	if (strcmp(reg.nombreusuario, ses.nombreusuario)==0 && strcmp(reg.contrasena, ses.contrasena)==0) {
+		printf("Bienvenido a AMB, %s! \n", reg.nombreusuario);
+		fclose(pf);
+		return 0;
 	}
-	
-	// Si pasa aqui, es que los datos introducidos son incorrectos
+	else {
 	printf("Datos incorrectos. Por favor, intentelo de nuevo.\n");
 	fclose(pf);
-	return 1;
-	
+	return 1;		
+	}	
 }
 
 /*
