@@ -13,7 +13,7 @@ int main(){
 	printf("Somos una aplicacion dedicada a proporcionar informacion facil y directa acerca de la calidad del agua de los barrios de Madrid.");
 	printf("Dividimos los datos segun las fuentes de cada barrio, facilitando al usuario su ph, conductividad, turbidez y coliformes\n\n");
 	
-	printf("Si desea continuar y obtener la informacion anteriormente mencionada seleccione una letra S (Sí) o N (No)\n");
+	printf("Si desea continuar y obtener la informacion anteriormente mencionada seleccione una letra S (SI) o N (NO)\n");
 	scanf("%c", &respuesta1);
 	
 	//menu principal
@@ -106,7 +106,7 @@ void iniciosesion() {
 	
 	printf("Introduzca su nombre de usuario: \n");
 	scanf("%s", reg.nombreusuario);
-	printf("Introduzca su contraseña: \n");
+	printf("Introduzca su contraseÃ±a: \n");
 	scanf("%s", reg.contrasena);
 	
 	// comprueba si los datos son correctos o no
