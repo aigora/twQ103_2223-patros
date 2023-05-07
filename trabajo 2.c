@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <string.h>
+#include <windows.h>
 
 void registrar();
 void iniciosesion();
 void contrasenaOK();
+void temporizador();
 
 // funcion principal
 int main(){
@@ -120,16 +123,6 @@ void iniciosesion() {
 		return 1;
 	}
 	
-	/*do {
-		printf("Introduzca su nombre de usuario: ");
-		fflush(stdin);
-		fgets(ses.nombreusuario, 50, stdin);
-		printf("Introduzca su contrasena: ");
-		fflush(stdin);
-		fgets(ses.contrasena, 50, stdin);
-		
-	} while(strcmp(reg.nombreusuario, ses.nombreusuario)!=0 || strcmp(reg.contrasena, ses.contrasena)!=0); */
-	
 	// comprueba si los datos son correctos o no
 	do {
 		printf("Introduzca su nombre de usuario: ");
@@ -155,10 +148,44 @@ void iniciosesion() {
 	} while(numIntentos > 0 && aux == 1);
 	
 	if(numIntentos == 0) {
-		printf("Has fallado 3 veces, intentalo mas tarde\n");
-	}	
+		printf("Has fallado 3 veces, intentelo de nuevo en 15 segundos\n");
+		temporizador(numIntentos);
+	}
+	
+	numIntentos = 3;	
+	
+	do {
+		printf("Introduzca su nombre de usuario: ");
+		fflush(stdin);
+		fgets(ses.nombreusuario, 50, stdin);
+		printf("Introduzca su contrasena: ");
+		fflush(stdin);
+		fgets(ses.contrasena, 50, stdin);
+		
+		if(strcmp(reg.nombreusuario, ses.nombreusuario)!=0 || strcmp(reg.contrasena, ses.contrasena)!=0) {
+			printf("Datos incorrectos. Por favor, intentelo de nuevo.\n");
+			numIntentos--;
+			aux = 1;
+			
+		}
+		else {
+			printf("Bienvenido a AMB, %s!\n", reg.nombre);
+			fclose(pf);
+			aux = 0;
+			return 1;
+		}
+		
+	} while(numIntentos > 0 && aux == 1);
 }
 
+void temporizador(int numIntentos) {
+	int seg, x = 1000;
+	
+	for(seg = 15; seg <= 15 && seg >= 0; seg--) {
+		printf("%02d\r", seg);
+		Sleep(x);
+	}
+}
 
 /*
 void menu2() {
