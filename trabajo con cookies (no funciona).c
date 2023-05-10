@@ -71,7 +71,7 @@ int main(){
 void cookies() {
 	char respuesta;
 	
-	printf("Este sitio web utiliza cookies para mejorar su experiencia. ¿Acepta el uso de cookies? (S/N)\n");
+	printf("Este sitio web utiliza cookies para mejorar su experiencia. Â¿Acepta el uso de cookies? (S/N)\n");
 	scanf(" %c", &respuesta);
 	
 	if(respuesta=='S' || respuesta=='s') {
@@ -83,7 +83,7 @@ void cookies() {
 }
 
 
-void registrar(int respuesta2) {
+void registrar() {
 	
 	FILE *pf;
 	registro reg;
