@@ -110,7 +110,7 @@ void registrar() {
 
 void iniciosesion() {
 	
-	int numIntentos = 3, aux = 0;
+	int numIntentos = 3, aux = 0, crono = 0;;
 	FILE *pf;
 	registro reg;
 	sesion ses;
@@ -124,58 +124,39 @@ void iniciosesion() {
 	}
 	
 	// comprueba si los datos son correctos o no
-	do {
-		printf("Introduzca su nombre de usuario: ");
-		fflush(stdin);
-		fgets(ses.nombreusuario, 50, stdin);
-		printf("Introduzca su contrasena: ");
-		fflush(stdin);
-		fgets(ses.contrasena, 50, stdin);
+	while(crono == 0) {
+		rewind(pf);
+		do {
+			printf("Introduzca su nombre de usuario: ");
+			fflush(stdin);
+			fgets(ses.nombreusuario, 50, stdin);
+			printf("Introduzca su contrasena: ");
+			fflush(stdin);
+			fgets(ses.contrasena, 50, stdin);
 		
-		if(strcmp(reg.nombreusuario, ses.nombreusuario)!=0 || strcmp(reg.contrasena, ses.contrasena)!=0) {
-			printf("Datos incorrectos. Por favor, intentelo de nuevo.\n");
-			numIntentos--;
-			aux = 1;
+			if(strcmp(reg.nombreusuario, ses.nombreusuario)!=0 || strcmp(reg.contrasena, ses.contrasena)!=0) {
+				printf("Datos incorrectos. Por favor, intentelo de nuevo.\n");
+				numIntentos--;
+				aux = 0;
 			
-		}
-		else {
-			printf("Bienvenido a AMB, %s!\n", reg.nombre);
-			fclose(pf);
-			aux = 0;
-			return 1;
-		}
-		
-	} while(numIntentos > 0 && aux == 1);
+			}
+			else {
+				printf("Bienvenido a AMB, %s!\n", reg.nombre);
+				fclose(pf);
+				aux = 1;
+				return 1;
+			}
+		} while(numIntentos > 0 && aux == 0);
 	
 	if(numIntentos == 0) {
 		printf("Has fallado 3 veces, intentelo de nuevo en 15 segundos\n");
 		temporizador(numIntentos);
 	}
+	else {
+		crono++;
+	}
 	
-	numIntentos = 3;	
-	
-	do {
-		printf("Introduzca su nombre de usuario: ");
-		fflush(stdin);
-		fgets(ses.nombreusuario, 50, stdin);
-		printf("Introduzca su contrasena: ");
-		fflush(stdin);
-		fgets(ses.contrasena, 50, stdin);
-		
-		if(strcmp(reg.nombreusuario, ses.nombreusuario)!=0 || strcmp(reg.contrasena, ses.contrasena)!=0) {
-			printf("Datos incorrectos. Por favor, intentelo de nuevo.\n");
-			numIntentos--;
-			aux = 1;
-			
-		}
-		else {
-			printf("Bienvenido a AMB, %s!\n", reg.nombre);
-			fclose(pf);
-			aux = 0;
-			return 1;
-		}
-		
-	} while(numIntentos > 0 && aux == 1);
+	numIntentos = 3;
 }
 
 void temporizador(int numIntentos) {
@@ -187,11 +168,6 @@ void temporizador(int numIntentos) {
 	}
 }
 
-/*
-void menu2() {
-	
-	
-} */
 
 
 
