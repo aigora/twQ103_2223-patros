@@ -27,9 +27,10 @@ typedef struct {
 // funcion principal
 int main(){
 	
+	cookies();
+	
 	banner();
 	printf("\n\n\n");
-	cookies();
 	
 	char respuesta1;
 	int respuesta2;
@@ -41,7 +42,7 @@ int main(){
 	printf("\n");
 	
 	printf("Si desea continuar y obtener la informacion anteriormente mencionada, seleccione S (SI) o N (NO)\n");
-	scanf("%s", &respuesta1);
+	scanf(" %c", &respuesta1);
 	
 	//menu principal
 		if(respuesta1=='S' || respuesta1=='s'){
@@ -93,13 +94,13 @@ void banner() {
 void cookies() {
 	char respuesta;
 	
-	printf("Este sitio web utiliza cookies para mejorar su experiencia. ?Acepta el uso de cookies? (S/N)\n");
+	printf("Este sitio web utiliza cookies para mejorar su experiencia. Acepta el uso de cookies? S (SI) o N (NO)\n");
 	scanf(" %c", &respuesta);
 	
 	if(respuesta=='S' || respuesta=='s') {
-		printf("Gracias por aceptar el uso de cookies. Continuemos con el programa.\n\n");
+		printf("Gracias por aceptar el uso de cookies.\n\n");
 	} else {
-		printf("Lamentablemente, no podemos continuar sin su consentimiento para el uso de cookies.\n");
+		printf("Lamentablemente, no podemos continuar sin su consentimiento para el uso de cookies.\n\n");
 		exit(0);
 	}
 }
