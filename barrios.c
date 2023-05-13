@@ -17,12 +17,12 @@ int main() {
     char c;
     int filas = 0, columnas = 0, k = 0;
     
-    printf("Introduce el nombre del archivo (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
+    printf("Introduce el nombre del archivo que deseas analizar (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
     scanf("%s", filename);
 
     fp = fopen(filename, "r");
     if (fp == NULL) {
-        perror("Error al abrir archivo.\n");
+        perror("No se ha podido abrir el archivo.\n");
         exit(1);
     }
 
