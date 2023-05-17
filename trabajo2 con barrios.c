@@ -73,6 +73,7 @@ int main(){
 }	
 
 
+
 	
 void banner() {
 	printf ("            *********         *****************       ******             ****** \n");
@@ -89,6 +90,7 @@ void banner() {
 	printf ("         ******   ******      *****************       *****               ***** \n");
 	printf("\n");
 }
+
 
 
 void cookies() {
@@ -152,6 +154,8 @@ int registrar() {
 	
 }
 
+
+
 int iniciosesion() {
 	
 	int numIntentos = 3, aux = 0, crono = 0;
@@ -207,6 +211,7 @@ int iniciosesion() {
 	} while(crono == 0);
 }
 
+
 void temporizador(int numIntentos) {
 	int seg, x = 1000;
 	
@@ -216,6 +221,7 @@ void temporizador(int numIntentos) {
 	}
 }
 
+
 typedef struct {
     char *data;
     int filas;
@@ -224,6 +230,8 @@ typedef struct {
 
 datos *dat;
 void graficos(datos *dat);
+
+
 
 // funcion donde eliges el barrio
 int menu2() {
@@ -279,6 +287,8 @@ int menu2() {
     return 0;
 }
 
+
+
 void graficos(datos *dat) {
     int i, j;
     for (i = 0; i < dat->filas; i++) {
@@ -288,6 +298,8 @@ void graficos(datos *dat) {
         printf("\n");
     }
 }
+
+
 
 // funcion en la cual eliges que informacion quieres
 int operaciones () {
@@ -339,19 +351,23 @@ int operaciones () {
 	
 }
 
-// calculo de la media 
+
+
+// calculo de la media segun el barrio que elijas
 int media() {
 	
 	return media;
 }
 
-// calculo del minimo
+
+// calculo del minimo segun el barrio que elijas
 int minimo() {
 	
 	return minimo;
 }
 
-// calculo del maximo
+
+// calculo del maximo segun el barrio que elijas
 int maximo() {
 	
 	return maximo;
