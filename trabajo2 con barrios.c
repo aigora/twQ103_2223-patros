@@ -225,15 +225,16 @@ typedef struct {
 datos *dat;
 void graficos(datos *dat);
 
+// funcion donde eliges el barrio
 int menu2() {
     FILE *fp;
     char filename[50];
     char c;
     int filas = 0, columnas = 0, k = 0;
     
-    printf("A continuación le vamos a mostrar la lista de los barrios sobre los que tenemos información:\n");
+    printf("A continuaciÃ³n le vamos a mostrar la lista de los barrios sobre los que tenemos informaciÃ³n:\n");
     printf("1. Embajadores\n");
-    printf("2. Lavapiés\n");
+    printf("2. LavapiÃ©s\n");
     printf("3. Moncloa\n");
     printf("4. Pozuelo\n");
     printf("Introduce el nombre del archivo que deseas analizar (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
@@ -288,12 +289,12 @@ void graficos(datos *dat) {
     }
 }
 
-
+// funcion en la cual eliges que informacion quieres
 int operaciones () {
 	
 	int opcion, num;
 	
-	printf("A continuacion, le mostraremos distinta información que podra obtener sobre el barrio seleccionado:\n");
+	printf("A continuacion, le mostraremos distinta informaciÃ³n que podra obtener sobre el barrio seleccionado:\n");
 	printf("1. Media\n");
 	printf("2. Minimo\n");
 	printf("3. Maximo\n");
@@ -304,13 +305,13 @@ int operaciones () {
 	switch (opcion) {
 		case 1:
 			do{
-			    printf("¿Sobre que dato le gustaria saber la media? \n");
+			    printf("Â¿Sobre que dato le gustaria saber la media? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 			} while (opcion != 2 || opcion != 3 || opcion != 4 || opcion != 5);
 		case 2:
 			do{
-			    printf("¿Sobre que dato le gustaria saber el minimo? \n");
+			    printf("Â¿Sobre que dato le gustaria saber el minimo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    
@@ -318,7 +319,7 @@ int operaciones () {
 
 		case 3:
 			do{
-			    printf("¿Sobre que dato le gustaria saber el maximo? \n");
+			    printf("Â¿Sobre que dato le gustaria saber el maximo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    
@@ -338,16 +339,19 @@ int operaciones () {
 	
 }
 
+// calculo de la media 
 int media() {
 	
 	return media;
 }
 
+// calculo del minimo
 int minimo() {
 	
 	return minimo;
 }
 
+// calculo del maximo
 int maximo() {
 	
 	return maximo;
