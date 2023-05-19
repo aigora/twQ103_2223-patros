@@ -4,27 +4,26 @@
 #include <windows.h>
 
 void banner();
-int registrar();
-int iniciosesion();
-void contrasenaOK();
+void registrar();
+void iniciosesion();
 void temporizador();
 void cookies();
 int menu2();
-int operaciones ();
+int operaciones();
 
-typedef struct {
+struct Registro {
 	char nombre[50];
 	char apellido[50];
-	int edad;
-	char codpostal[50];
-	char nombreusuario[50];
-	char contrasena[50];
-}registro;
+	int edad[50];
+	int codpostal[50];
+    char nombreusuario[50];
+    char contrasena[50];
+};
 
-typedef struct {
-	char nombreusuario[50];
-	char contrasena[50];
-}sesion;
+struct Sesion {
+    char nombreusuario[20];
+    char contrasena[20];
+};
 
 // funcion principal
 int main(){
@@ -96,111 +95,80 @@ void cookies() {
 }
 
 
-int registrar() {
-	
-	FILE *pf;
-	registro reg;
-	sesion ses;
-	
-	
-	// se abre el archivo en modo escritura para guardar los datos al final del archivo
-	pf=fopen("datos.txt","w");
-	if(pf==NULL) {
-		perror("No se ha podido abrir el archivo");
-		return 0;
-	}
-	
-	// lee los datos del usuario
-	printf("Introduce tu nombre: ");
-	fflush(stdin);
-	fgets(reg.nombre,50,stdin);
-	reg.nombre[strcspn(reg.nombre, "\n")] ='\0';
-	printf("Introduce tu apellido: ");
-	fflush(stdin);
-	fgets(reg.apellido, 50, stdin);
-    reg.apellido[strcspn(reg.apellido, "\n")] = '\0';
-	printf("Introduce tu edad: ");
-	scanf("%d", &reg.edad);
-    getchar();
-	printf("Introduce tu codigo postal: ");
-	fflush(stdin);
-	fgets(reg.codpostal, 50, stdin);
-    reg.codpostal[strcspn(reg.codpostal, "\n")] = '\0';
-	printf("Introduce tu nombre de usuario: ");
-    reg.nombreusuario[strcspn(reg.nombreusuario, "\n")] = '\0';
-    fflush(stdin);
-	fgets(reg.nombreusuario, 50, stdin);
-	printf("Introduce tu contrasena: ");
-	fflush(stdin);
-	fgets(reg.contrasena, 50, stdin);
-    reg.contrasena[strcspn(reg.contrasena, "\n")] = '\0';
-	
-	fprintf(pf,"%s; %s; %d; %s; %s; %s \n", reg.nombre, reg.apellido, reg.edad, reg.codpostal, reg.nombreusuario, reg.contrasena );
-	
-	// se cierra el archivo con la informacion
-	fclose(pf);
-	
-	printf("Muchas gracias por registrarte. Recuerda tu usuario y contrasena para la proxima vez. \n");
-	
-	//menu2();
-	
+void registrar() {
+    struct Registro reg;
+    
+    printf("Ingrese tu nombre: ");
+    scanf("%s", &reg.nombre);
+    
+    printf("Ingrese tu apellido: ");
+    scanf("%s", &reg.apellido);
+    
+    printf("Ingrese tu edad: ");
+    scanf("%s", &reg.edad);
+    
+    printf("Ingrese tu codigo postal: ");
+    scanf("%s", &reg.codpostal);
+    
+    printf("Ingrese el nombre de usuario: ");
+    scanf("%s", &reg.nombreusuario);
+    
+    printf("Ingrese la contrasena: ");
+    scanf("%s", &reg.contrasena);
+    
+    FILE* archivo = fopen("datos.txt", "w");
+    if (archivo == NULL) {
+        printf("Error al abrir el archivo.\n");
+        return;
+    }
+    
+    fprintf(archivo, "%s %s", reg.nombreusuario, reg.contrasena);
+    fclose(archivo);
+    
+    printf("Registro exitoso.\n\n");
 }
 
+void iniciosesion() {
+    struct Sesion ses;
+    int numIntentos = 3, aux = 0, crono = 0;
+    
+    do {
+    	do {
+   			printf("Ingrese el nombre de usuario: ");
+    		scanf("%s", &ses.nombreusuario);
+    
+    		printf("Ingrese la contrasena: ");
+    		scanf("%s", &ses.contrasena);
+    
+    		FILE* archivo = fopen("datos.txt", "r");
+    		if (archivo == NULL) {
+    	    	printf("Error al abrir el archivo.\n");
+    	    	return;
+    		}
+    
+    		struct Registro reg;
+    		fscanf(archivo, "%s %s", reg.nombreusuario, reg.contrasena);
+    		fclose(archivo);
+    
 
+    		if (strcmp(ses.nombreusuario, reg.nombreusuario) == 0 && strcmp(ses.contrasena, reg.contrasena) == 0) {
+        		printf("Usuario y contrasena correctos.\n\n");
+       		 aux = 1;
+       		 crono = 1;
+    		}
+			else {
+        		printf("Nombre de usuario o contrasena incorrectos. Intentalo de nuevo\n\n");
+        		numIntentos--;
+        		aux = 0;
+    		}
+    		if(numIntentos == 0) {
+    			printf("Has fallado 3 veces. Intentalo de nuevo en 15 segundos\n\n");
+    			temporizador(numIntentos);	
+    			numIntentos = 3;
+			}
+		} while(numIntentos > 0 && aux == 0);
 
-int iniciosesion() {
-	
-	int numIntentos = 3, aux = 0, crono = 0;
-	FILE *pf;
-	registro reg;
-	sesion ses;
-	
-	//se abre el fichero de los datos y los lee
-	pf=fopen("datos.txt","r");
-	
-	if (pf==NULL) {
-		perror("No se ha podido abrir el archivo");
-		return 1;
-	}
-	
-	// comprueba si los datos son correctos o no
-	printf("\nInicia sesion: ");
-	
-	do {
-		
-	    do {
-	    	printf("\nIntroduzca su nombre de usuario: ");
-	    	fflush(stdin);
-	    	fgets(ses.nombreusuario, 50, stdin);
-	    	printf("Introduzca su contrasena: ");
-	    	fflush(stdin);
-	    	fgets(ses.contrasena, 50, stdin);
-	    	
-	    
-		if(strcmp(reg.nombreusuario, ses.nombreusuario)!=0 || strcmp(reg.contrasena, ses.contrasena)!=0) {
-			printf("Datos incorrectos. Por favor, intentelo de nuevo.\n");
-			numIntentos--;
-			aux = 1;
-			
-		}
-		else if(strcmp(reg.nombreusuario, ses.nombreusuario)==0 && strcmp(reg.contrasena, ses.contrasena)==0){
-			printf("\nBienvenido a AMB, %s %s!", reg.nombre, reg.apellido);
-			fclose(pf);
-			aux = 0;
-			return 1;
-		}
-		
-	} while(numIntentos > 0 && aux == 1);
-
-	    if(numIntentos == 0) {
-	    	printf("Has fallado 3 veces, intentelo de nuevo en 15 segundos\n");
-	    	temporizador(numIntentos);
-	    	numIntentos = 3;
-    	}
-		else {
-		    crono = 1;
-    	}
-	} while(crono == 0);
+	} while(crono = 0);
 }
 
 
@@ -298,7 +266,7 @@ int operaciones () {
 	
 	int opcion, num;
 	
-	printf("A continuacion, le mostraremos distinta información que podra obtener sobre el barrio seleccionado:\n");
+	printf("A continuacion, le mostraremos distinta informacion que podra obtener sobre el barrio seleccionado:\n");
 	printf("1. Media\n");
 	printf("2. Minimo\n");
 	printf("3. Maximo\n");
@@ -346,7 +314,7 @@ int operaciones () {
 
 
 // calculo de la media segun el barrio que elijas
-int media() {
+/*int media() {
 	
 	return media;
 }
@@ -363,5 +331,5 @@ int minimo() {
 int maximo() {
 	
 	return maximo;
-}
+}*/
 
