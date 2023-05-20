@@ -152,8 +152,8 @@ void iniciosesion() {
     
 
     		if (strcmp(ses.nombreusuario, reg.nombreusuario) == 0 && strcmp(ses.contrasena, reg.contrasena) == 0) {
-        		printf("Usuario y contrasena correctos.\n");
-			printf("Bienvenido %s %s", reg.nombre, reg.apellido);
+        		printf("Usuario y contrasena correctos.\n\n");
+			printf("Bienvenido %s!", reg.nombreusuario);
        		 aux = 1;
        		 crono = 1;
     		}
