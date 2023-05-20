@@ -41,7 +41,7 @@ int main(){
 	
 	printf("\n");
 	
-	printf("Si desea continuar y obtener la informacion anteriormente mencionada, seleccione S (S/N)\n");
+	printf("Si desea continuar y obtener la informacion anteriormente mencionada (S/N)\n");
 	scanf("%s", &respuesta1);
 	
 	//menu principal
@@ -152,7 +152,8 @@ void iniciosesion() {
     
 
     		if (strcmp(ses.nombreusuario, reg.nombreusuario) == 0 && strcmp(ses.contrasena, reg.contrasena) == 0) {
-        		printf("Usuario y contrasena correctos.\n\n");
+        		printf("Usuario y contrasena correctos.\n");
+			printf("Bienvenido %s %s", reg.nombre, reg.apellido);
        		 aux = 1;
        		 crono = 1;
     		}
@@ -263,7 +264,7 @@ void graficos(datos *dat) {
 
 
 
-// funcion en la cual eliges que informacion quieres
+// Funcion en la cual eliges que informacion quieres
 int operaciones () {
 	
 	int opcion, num;
@@ -279,13 +280,13 @@ int operaciones () {
 	switch (opcion) {
 		case 1:
 			do{
-			    printf("¿Sobre que dato le gustaria saber la media? \n");
+			    printf("Â¿Sobre que dato le gustaria saber la media? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 			} while (opcion != 2 || opcion != 3 || opcion != 4 || opcion != 5);
 		case 2:
 			do{
-			    printf("¿Sobre que dato le gustaria saber el minimo? \n");
+			    printf("Â¿Sobre que dato le gustaria saber el minimo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    
@@ -293,7 +294,7 @@ int operaciones () {
 
 		case 3:
 			do{
-			    printf("¿Sobre que dato le gustaria saber el maximo? \n");
+			    printf("Â¿Sobre que dato le gustaria saber el maximo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    
