@@ -206,7 +206,7 @@ int menu2() {
     printf("3. Embajadores\n");
     printf("4. Legazpi\n");
     printf("\n\n"); 
-    printf("Disponemos de los datos analizados desde el comienzo de la aplicacion hasta ahora.\n Por favor, selecciona uno de los siguientes tres anos: 2021, 2022 o 2023.\n Luego, indica el periodo en el que deseas consultar esta informacion. Utiliza el numero 01 para referirte a principios de ano (enero), 06 para mediados de ano (junio) y 12 para finales de ano (diciembre).\n\n ");
+    printf("Disponemos de los datos analizados desde el comienzo de la aplicacion hasta ahora.\nPor favor, selecciona uno de los siguientes tres years: 2021, 2022 o 2023.\nLuego, indica el periodo en el que deseas consultar esta informacion. Utiliza el numero 01 para referirte a principios de year (enero), 06 para mediados de year (junio) y 12 para finales de year (diciembre).\n\n ");
     printf("Introduce el nombre del archivo que deseas analizar (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
     scanf("%s", filename);
 
