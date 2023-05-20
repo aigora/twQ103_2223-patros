@@ -200,11 +200,13 @@ int menu2() {
     char c;
     int filas = 0, columnas = 0, k = 0;
     
-    printf("A continuación le vamos a mostrar la lista de los barrios sobre los que tenemos información del distrito de Arganzuela:\n");
+    printf("A continuacion le vamos a mostrar la lista de los barrios sobre los que tenemos informacion del distrito de Arganzuela:\n");
     printf("1. Atocha\n");
     printf("2. Delicias\n");
     printf("3. Embajadores\n");
     printf("4. Legazpi\n");
+    printf("\n\n"); 
+    printf("Disponemos de los datos analizados desde el comienzo de la aplicacion hasta ahora.\n Por favor, selecciona uno de los siguientes tres anos: 2021, 2022 o 2023.\n Luego, indica el periodo en el que deseas consultar esta informacion. Utiliza el numero 01 para referirte a principios de ano (enero), 06 para mediados de ano (junio) y 12 para finales de ano (diciembre).\n\n ");
     printf("Introduce el nombre del archivo que deseas analizar (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
     scanf("%s", filename);
 
@@ -332,4 +334,6 @@ int maximo() {
 	
 	return maximo;
 }*/
+
+
 
