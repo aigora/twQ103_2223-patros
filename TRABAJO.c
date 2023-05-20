@@ -36,7 +36,7 @@ int main(){
 	int respuesta2;
 
 	printf("Bienvenido a ABM (Agua de los Barrios de Madrid).\n");
-	printf("Somos una aplicacion dedicada a proporcionar informacion facil y directa acerca de la calidad del agua de los barrios de Arganzuela, Madrid.");
+	printf("Somos una aplicacion dedicada a proporcionar informacion facil y directa acerca de la calidad del agua de los barrios de Arganzuela, Madrid. ");
 	printf("Dividimos los datos segun las fuentes de cada barrio, facilitando al usuario su ph, conductividad, turbidez y coliformes\n\n");
 	
 	printf("\n");
