@@ -264,10 +264,12 @@ void graficos(datos *dat) {
 
 
 
-// Funcion en la cual eliges que informacion quieres
+
+// funcion en la cual eliges que informacion quieres
 int operaciones () {
 	
 	int opcion, num;
+	float media;
 	
 	printf("A continuacion, le mostraremos distinta informacion que podra obtener sobre el barrio seleccionado:\n");
 	printf("1. Media\n");
@@ -279,18 +281,20 @@ int operaciones () {
 	
 	switch (opcion) {
 		case 1:
-			do{
 			    printf("¿Sobre que dato le gustaria saber la media? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
-			} while (opcion != 2 || opcion != 3 || opcion != 4 || opcion != 5);
+				media = calculoMedia(dat,num-1);
+		    	printf("La media es: %.4f\n", media);
+		    	operaciones();
+			break;
 		case 2:
 			do{
 			    printf("¿Sobre que dato le gustaria saber el minimo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    
-			}while (opcion != 1 || opcion != 3 || opcion != 4 || opcion != 5);
+			}while (num != 1 || num != 3 || num != 4 || num != 5);
 
 		case 3:
 			do{
@@ -298,10 +302,10 @@ int operaciones () {
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    
-			}while (opcion != 1 || opcion != 2 || opcion != 4 || opcion != 5);
+			}while (num != 1 || num != 2 || num != 4 || num != 5);
 
 		case 4:
-			printf("Perfecto.\t");
+			printf("Perfecto.\n");
 			menu2();
 		break;
 		case 5:
@@ -309,20 +313,42 @@ int operaciones () {
 			printf("\n\n\n");
 			printf("Muchas gracias por haber elegido ABM. Esperamos volverle a ver. \n");
 		break;
-			
+		default:
+			printf("Opcion invalida. Por favor, elija otra opcion.");
+			break;	
 	}
 	
-}
-
-
-
-// calculo de la media segun el barrio que elijas
-/*int media() {
+	return opcion;
 	
-	return media;
 }
 
 
+float calculoMedia(datos *dat, int columna) {
+	int i,j;
+	float suma=0;
+	float cont=0;
+	double media,valor;
+	
+	for (i=0; i<dat->filas; i++) {
+		for(j=0; j<dat->columnas; j++) {
+			if (j==columna) {
+				 // aqui convierte el valor de la posicion al numero que le corresponde y lo suma
+				 valor=atof(&dat->data[i * dat->columnas + j]);
+				 suma+=valor;
+				 cont++;
+			}
+		}
+	}
+	
+	if(cont>0) {
+		media=suma/cont;
+		return media;
+	} else {
+		return 0;
+	}
+}
+
+/*
 // calculo del minimo segun el barrio que elijas
 int minimo() {
 	
@@ -335,6 +361,5 @@ int maximo() {
 	
 	return maximo;
 }*/
-
 
 
