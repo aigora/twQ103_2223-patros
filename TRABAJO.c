@@ -278,7 +278,7 @@ int operaciones() {
 	scanf("%s", categoria);
 	printf("\n");
 	
-	printf("Seleccione una opcion:\n1: Calcular la media\n2: Calcular el maximo\n3:Calcular el minimo\n");
+	printf("Seleccione una opcion:\n1: Calcular la media\n2: Calcular el maximo\n3:Calcular el minimo\n4:Salir del programa\n");
 	scanf("%d", &n);
 	if(MediaMinMax(nombre, categoria, n) == -1){
 		printf("El archivo no se ha podido abrir");
@@ -291,6 +291,11 @@ int operaciones() {
 		}
 		if(n == 3){
 			printf("El minimo es: %lf", MediaMinMax(nombre, categoria, n));
+		}
+		if(n == 4){
+			banner();
+			printf("Muchas gracias por utilizar ABM. Esperamos volver a verle");
+			return 0;
 		}
 	}
 	
