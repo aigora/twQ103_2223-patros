@@ -359,8 +359,7 @@ double MediaMinMax(char c[], char dato[], int a){
 	}else{
 		return -1;
 	}
-	
-	return media;
+
 	
 }
 
