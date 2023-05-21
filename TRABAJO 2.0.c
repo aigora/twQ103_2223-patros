@@ -327,7 +327,7 @@ int operaciones () {
 		case 5:
 			banner();
 			printf("\n\n\n");
-			printf("Muchas gracias por haber elegido ABM. Esperamos volverle a ver. \n");
+			printf("Muchas gracias por haber elegido ABM. Esperamos servirle de ayuda en otro momento. \n");
 		break;
 		default:
 			printf("Opcion invalida. Por favor, elija otra opcion.");
