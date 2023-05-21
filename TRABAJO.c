@@ -10,7 +10,7 @@ void temporizador();
 void cookies();
 int menu2();
 int operaciones();
-double MediaMinMax();
+double MediaMinMax(char c[], char dato[], int a);
 
 struct Registro {
 	char nombre[50];
