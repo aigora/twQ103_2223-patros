@@ -313,6 +313,8 @@ int operaciones() {
 			printf("El minimo es: %lf", MediaMinMax(nombre, categoria, n));
 		}
 	}
+	
+	printf("\n\n\n");
         operaciones();
 	
 	return 0;
