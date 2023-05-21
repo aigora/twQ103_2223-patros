@@ -215,7 +215,7 @@ int menu2() {
     	banner();
     	printf("\n\n\n");
     	printf("Muchas gracias por utilizar ABM. Esperamos volver a verle.\n");
-	}else {
+	}else if(num==1||num==2||num==3||num==4){
 	    printf("Disponemos de los datos analizados desde el comienzo de la aplicacion hasta ahora.\nPor favor, selecciona uno de los siguientes tres years: 2021, 2022 o 2023.\nLuego, indica el periodo en el que deseas consultar esta informacion. Utiliza el numero 01 para referirte a principios de year (enero), 06 para mediados de year (junio) y 12 para finales de year (diciembre).\n\n ");
         printf("Introduce el nombre del archivo que deseas analizar (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
         scanf("%s", filename);
