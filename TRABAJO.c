@@ -270,10 +270,12 @@ int operaciones() {
 	char nombre[20];
 	int n;
 	
-	printf("Introduce el nombre del fichero para el distrito desado: (XXXXYY_barrio.txt ; XXXX = year, YY = month)\n");
+	printf("Introduce el nombre del fichero para el distrito deseado: (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
+	printf("\n");
 	scanf("%s", nombre);
 	
-	printf("Introduce el dato el cual desea calcular: (ph, conductividad, turbidez o coliforme)\n");
+	printf("Introduce el dato el cual desea calcular: (ph, conductividad, turbidez o coliforme): ");
+	printf("\n");
 	scanf("%s", categoria);
 	
 	printf("Seleccione una opcion:\n1: Calcular la media\n2: Calcular el maximo\n3:Calcular el minimo\n");
