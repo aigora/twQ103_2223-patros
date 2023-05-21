@@ -292,7 +292,7 @@ int operaciones () {
 	
 	switch (opcion) {
 		case 1:
-			    printf("øSobre que dato le gustaria saber la media? \n");
+			    printf("¬øSobre que dato le gustaria saber la media? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    	media = calculoMedia(dat,num);
@@ -301,7 +301,7 @@ int operaciones () {
 			break;
 		case 2:
 			do{
-			    printf("øSobre que dato le gustaria saber el minimo? \n");
+			    printf("¬øSobre que dato le gustaria saber el minimo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    	if (posMin >= 0) {
@@ -315,11 +315,11 @@ int operaciones () {
 
 		case 3:
 			do{
-			    printf("øSobre que dato le gustaria saber el maximo? \n");
+			    printf("¬øSobre que dato le gustaria saber el maximo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    	if (posMax >= 0) {
-                    printf("El m·ximo valor de 'ph' se encuentra en la posicion %d.\n", posMax);
+                    printf("El m√°ximo valor de 'ph' se encuentra en la posicion %d.\n", posMax);
 				} 
 				else {
                 printf("Error al calcular el maximo valor.\n");
@@ -334,7 +334,7 @@ int operaciones () {
 		case 5:
 			banner();
 			printf("\n\n\n");
-			printf("Muchas gracias por haber elegido ABM. Esperamos volverle a ver. \n");
+			printf("Muchas gracias por haber elegido ABM. Esperamos servirle de ayuda en otro momento. \n");
 		break;
 		default:
 			printf("Opcion invalida. Por favor, elija otra opcion.");
@@ -357,7 +357,7 @@ float calculoMedia(datos *dat, int columna) {
 		for(j=0; j<dat->columnas; j++) {
 			if (columna==j) {
 				 valor+=j;
-				 suma+=atof(&valor); // Convertir el car·cter a float y sumarlo
+				 suma+=atof(&valor); // Convertir el car√°cter a float y sumarlo
 				 cont++;
 			}
 		}
