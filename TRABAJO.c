@@ -208,7 +208,7 @@ int menu2() {
     printf("2. Delicias\n");
     printf("3. Embajadores\n");
     printf("4. Legazpi\n");
-    printf("5. Salir del programa.");
+    printf("5. Salir del programa\n");
     scanf("%d", &num);
     printf("\n\n"); 
     if (num==5) {
@@ -286,7 +286,8 @@ int operaciones() {
 	if (strcmp(answer, "N") == 0 || strcmp(answer, "n") == 0) {
 		printf("\n");
 		banner();
-        exit(1);
+		printf("Muchas gracias por utilizar ABM. Esperamos volver a verle.\n");
+        	exit(1);
    	}
 	
 	printf("Introduce el nombre del fichero para el distrito deseado: (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
