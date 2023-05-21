@@ -10,7 +10,8 @@ void temporizador();
 void cookies();
 int menu2();
 int operaciones();
-float calculoMedia();
+float calculoMedia(datos *dat, int columna);
+int maxFromFile(const char* filename, int dim);
 
 struct Registro {
 	char nombre[50];
@@ -290,7 +291,7 @@ int operaciones () {
 	
 	switch (opcion) {
 		case 1:
-			    printf("¿Sobre que dato le gustaria saber la media? \n");
+			    printf("Â¿Sobre que dato le gustaria saber la media? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    	media = calculoMedia(dat,num);
@@ -299,7 +300,7 @@ int operaciones () {
 			break;
 		case 2:
 			do{
-			    printf("¿Sobre que dato le gustaria saber el minimo? \n");
+			    printf("Â¿Sobre que dato le gustaria saber el minimo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    
@@ -307,14 +308,14 @@ int operaciones () {
 
 		case 3:
 			do{
-			    printf("¿Sobre que dato le gustaria saber el maximo? \n");
+			    printf("Â¿Sobre que dato le gustaria saber el maximo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
 		    	if (posMax >= 0) {
-                    printf("El máximo valor de 'ph' se encuentra en la posición %d.\n", posMax);
+                    printf("El mÃ¡ximo valor de 'ph' se encuentra en la posiciÃ³n %d.\n", posMax);
 				} 
 				else {
-                printf("Error al calcular el máximo valor.\n");
+                printf("Error al calcular el mÃ¡ximo valor.\n");
 			 }
     
 			}while (num != 1 || num != 2 || num != 4 || num != 5);
@@ -349,7 +350,7 @@ float calculoMedia(datos *dat, int columna) {
 		for(j=0; j<dat->columnas; j++) {
 			if (columna==j) {
 				 valor+=j;
-				 suma+=atof(&valor); // Convertir el carácter a float y sumarlo
+				 suma+=atof(&valor); // Convertir el carÃ¡cter a float y sumarlo
 				 cont++;
 			}
 		}
