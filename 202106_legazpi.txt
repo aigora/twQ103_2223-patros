@@ -1,26 +1,26 @@
 parametros	ph	conductividad	turbidez	coliformes
-fuente 1	6.95	    239	         1	          1
-fuente 2	7.2	    124	         0	          0
-fuente 3	7.83	    104	         1	          1
-fuente 4	6.66	    217	         0	          0
-fuente 5	6.94	    124	         1	          0
-fuente 6	6.79	    118	         1	          0
-fuente 7	7.38	    164	         0	          1
-fuente 8	7.58	    269	         0	          0
-fuente 9	6.89	    177	         0	          1
-fuente 10	7.29	    243	         3	          0
-fuente 11	7.49	    205	         0	          0
-fuente 12	6.59	    121	         0	          1
-fuente 13	6.96	    127	         1	          1
-fuente 14	7.49	    121	         0	          0
-fuente 15	6.56	    176	         1	          0
-fuente 16	6.75	    140	         0	          0
-fuente 17	7.37	    179	         1	          1
-fuente 18	7.2	    124	         0	          1
-fuente 19	7.64	    235	         1	          0
-fuente 20	7.29	    169	         2	          0
-fuente 21	7.46	    144	         0	          0
-fuente 22	7.57	    189	         1	          1
-fuente 23	7.05	    134	         1	          1
-fuente 24	7.45	    215	         0	          1
-fuente 25	6.89	    184	         1	          0
+fuente1	6.95	    239	         1	          1
+fuente2	7.2	    124	         0	          0
+fuente3	7.83	    104	         1	          1
+fuente4	6.66	    217	         0	          0
+fuente5	6.94	    124	         1	          0
+fuente6	6.79	    118	         1	          0
+fuente7	7.38	    164	         0	          1
+fuente8	7.58	    269	         0	          0
+fuente9	6.89	    177	         0	          1
+fuente10	7.29	    243	         3	          0
+fuente11	7.49	    205	         0	          0
+fuente12	6.59	    121	         0	          1
+fuente13	6.96	    127	         1	          1
+fuente14	7.49	    121	         0	          0
+fuente15	6.56	    176	         1	          0
+fuente16	6.75	    140	         0	          0
+fuente17	7.37	    179	         1	          1
+fuente18	7.2	    124	         0	          1
+fuente19	7.64	    235	         1	          0
+fuente20	7.29	    169	         2	          0
+fuente21	7.46	    144	         0	          0
+fuente22	7.57	    189	         1	          1
+fuente23	7.05	    134	         1	          1
+fuente24	7.45	    215	         0	          1
+fuente25	6.89	    184	         1	          0
