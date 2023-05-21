@@ -280,7 +280,7 @@ int operaciones() {
 	int n;
 	char answer[1];
 	
-	printf("Desea analizar mas profundamente los ficheros dispobibles? (S/N): ");
+	printf("\nDesea analizar mas profundamente los ficheros disponibles? (S/N): ");
 	scanf(" %s", &answer);
 	
 	if (strcmp(answer, "N") == 0 || strcmp(answer, "n") == 0) {
