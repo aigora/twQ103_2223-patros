@@ -272,6 +272,11 @@ int operaciones () {
 	int opcion, num;
 	float media;
 	
+	const char* filename = "datos.txt";
+    int dim = 5;
+    int posMax = maxFromFile(filename, dim);
+    
+	
 	printf("A continuacion, le mostraremos distinta informacion que podra obtener sobre el barrio seleccionado:\n");
 	printf("1. Media\n");
 	printf("2. Minimo\n");
@@ -280,13 +285,15 @@ int operaciones () {
 	printf("5. Salir del programa\n");
 	scanf("%d", &opcion);
 	
-	media = calculoMedia(dat,num);
+	//media = calculoMedia(dat,num);
+	//max=max(dat, num);
 	
 	switch (opcion) {
 		case 1:
 			    printf("¿Sobre que dato le gustaria saber la media? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
+		    	media = calculoMedia(dat,num);
 		    	printf("La media es: %.4f\n", media);
 		    	operaciones();
 			break;
@@ -303,7 +310,13 @@ int operaciones () {
 			    printf("¿Sobre que dato le gustaria saber el maximo? \n");
 		    	printf(" 1) Ph\n 2) Conductividad\n 3) Turbidez\n 4) Coliforme\n");
 		    	scanf("%d", &num);
-		    
+		    	if (posMax >= 0) {
+                    printf("El máximo valor de 'ph' se encuentra en la posición %d.\n", posMax);
+				} 
+				else {
+                printf("Error al calcular el máximo valor.\n");
+			 }
+    
 			}while (num != 1 || num != 2 || num != 4 || num != 5);
 
 		case 4:
@@ -350,16 +363,50 @@ float calculoMedia(datos *dat, int columna) {
 	}
 }
 
+
+struct dato {
+	float ph;
+	int conductividad;
+    int turbidez;
+    int coliformes;
+};
+
+int maxFromFile(const char* filename, int dim) {
+    FILE* archivo = fopen(filename, "r");
+    if (archivo == NULL) {
+        printf("Error al abrir el archivo.\n");
+        return -1;
+    }
+    
+    struct dato datoMayorExtension;
+    int i, posMax;
+    
+    // Leer el primer dato del archivo
+    fscanf(archivo, "%f %d %d %d", &datoMayorExtension.ph, &datoMayorExtension.conductividad, &datoMayorExtension.turbidez, &datoMayorExtension.coliformes);
+    posMax = 0;
+    
+    // Comparar con los datos restantes en el archivo
+    for (i = 1; i < dim; i++) {
+        struct dato datos;
+        fscanf(archivo, "%f %d %d %d", &datos.ph, &datos.conductividad, &datos.turbidez, &datos.coliformes);
+        
+        if (datos.ph > datoMayorExtension.ph) {
+            datoMayorExtension = datos;
+            posMax = i;
+        }
+    }
+    
+    fclose(archivo);
+    return posMax;
+}
+
+
 /*
 // calculo del minimo segun el barrio que elijas
 int minimo() {
 	
 	return minimo;
-}
-
-
-// calculo del maximo segun el barrio que elijas
-int maximo() {
-	
-	return maximo;
 }*/
+
+
+
