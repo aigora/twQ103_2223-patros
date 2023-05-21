@@ -10,8 +10,8 @@ void temporizador();
 void cookies();
 int menu2();
 int operaciones();
-float calculoMedia(datos *dat, int columna);
-int maxFromFile(const char* filename, int dim);
+float calculoMedia();
+int maxFromFile();
 
 struct Registro {
 	char nombre[50];
