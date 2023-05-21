@@ -278,6 +278,16 @@ int operaciones() {
 	char categoria[15];
 	char nombre[20];
 	int n;
+	char answer[1];
+	
+	printf("Desea analizar mas profundamente los ficheros dispobibles? (S/N): ");
+	scanf(" %s", &answer);
+	
+	if (strcmp(answer, "N") == 0 || strcmp(answer, "n") == 0) {
+		printf("\n");
+		banner();
+        exit(1);
+   	}
 	
 	printf("Introduce el nombre del fichero para el distrito deseado: (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
 	scanf("%s", nombre);
