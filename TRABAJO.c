@@ -3,20 +3,11 @@
 #include <stdlib.h>
 #include <windows.h>
 
-void banner();
-void registrar();
-void iniciosesion();
-void temporizador();
-void cookies();
-int menu2();
-int operaciones();
-double MediaMinMax(char c[], char dato[], int a);
-
 struct Registro {
 	char nombre[50];
 	char apellido[50];
-	int edad[50];
-	int codpostal[50];
+	int edad;
+	int codpostal;
     char nombreusuario[50];
     char contrasena[50];
 };
@@ -26,9 +17,19 @@ struct Sesion {
     char contrasena[20];
 };
 
+void banner();
+void registrar(struct Registro *reg);
+void iniciosesion(struct Registro *reg, struct Sesion *ses);
+void temporizador(int numIntentos);
+void cookies();
+void menu2();
+int operaciones();
+double MediaMinMax(char c[], char dato[], int a);
+
 // funcion principal
 int main(){
-	
+	struct Registro reg;
+	struct Sesion ses;
 	cookies();
 	printf("\n\n\n");
 	banner();
@@ -48,8 +49,8 @@ int main(){
 	//menu principal
 		if(respuesta1=='S' || respuesta1=='s'){
 		    printf("Inicia tu resgitro: \n");
-				registrar();
-				iniciosesion();
+				registrar(&reg);
+				iniciosesion(&reg, &ses);
 				menu2(); 
 		}
 		else{
@@ -96,26 +97,26 @@ void cookies() {
 }
 
 
-void registrar() {
-    struct Registro reg;
+void registrar(struct Registro *reg) {
+    // CAMBIO struct Registro reg;
     
     printf("Ingrese tu nombre: ");
-    scanf("%s", &reg.nombre);
+    scanf("%s", reg->nombre);
     
     printf("Ingrese tu apellido: ");
-    scanf("%s", &reg.apellido);
+    scanf("%s", reg->apellido);
     
     printf("Ingrese tu edad: ");
-    scanf("%s", &reg.edad);
+    scanf("%d", &reg->edad);
     
     printf("Ingrese tu codigo postal: ");
-    scanf("%s", &reg.codpostal);
+    scanf("%d", &reg->codpostal);
     
     printf("Ingrese el nombre de usuario: ");
-    scanf("%s", &reg.nombreusuario);
+    scanf("%s", reg->nombreusuario);
     
     printf("Ingrese la contrasena: ");
-    scanf("%s", &reg.contrasena);
+    scanf("%s", reg->contrasena);
     
     FILE* archivo = fopen("datos.txt", "w");
     if (archivo == NULL) {
@@ -123,23 +124,23 @@ void registrar() {
         return;
     }
     
-    fprintf(archivo, "%s %s", reg.nombreusuario, reg.contrasena);
+    fprintf(archivo, "%s %s", reg->nombreusuario, reg->contrasena);
     fclose(archivo);
     
     printf("Registro exitoso.\n\n");
 }
 
-void iniciosesion() {
-    struct Sesion ses;
+void iniciosesion(struct Registro *reg, struct Sesion *ses) {
+    // CAMBIO struct Sesion ses;
     int numIntentos = 3, aux = 0, crono = 0;
     
     do {
     	do {
    			printf("Ingrese el nombre de usuario: ");
-    		scanf("%s", &ses.nombreusuario);
+    		scanf("%s", ses->nombreusuario);
     
     		printf("Ingrese la contrasena: ");
-    		scanf("%s", &ses.contrasena);
+    		scanf("%s", ses->contrasena);
     
     		FILE* archivo = fopen("datos.txt", "r");
     		if (archivo == NULL) {
@@ -147,16 +148,16 @@ void iniciosesion() {
     	    	return;
     		}
     
-    		struct Registro reg;
-    		fscanf(archivo, "%s %s", reg.nombreusuario, reg.contrasena);
+    		// CAMBIO struct Registro reg;
+    		fscanf(archivo, "%s %s", reg->nombreusuario, reg->contrasena);
     		fclose(archivo);
     
 
-    		if (strcmp(ses.nombreusuario, reg.nombreusuario) == 0 && strcmp(ses.contrasena, reg.contrasena) == 0) {
+    		if (strcmp(ses->nombreusuario, reg->nombreusuario) == 0 && strcmp(ses->contrasena, reg->contrasena) == 0) {
         		printf("Usuario y contrasena correctos.\n\n");
-			printf("Bienvenido %s!\n\n", reg.nombreusuario);
-       		 aux = 1;
-       		 crono = 1;
+				printf("Bienvenido %s!\n\n", reg->nombreusuario);
+       		 	aux = 1;
+       		 	crono = 1;
     		}
 			else {
         		printf("Nombre de usuario o contrasena incorrectos. Intentalo de nuevo\n\n");
@@ -170,14 +171,14 @@ void iniciosesion() {
 			}
 		} while(numIntentos > 0 && aux == 0);
 
-	} while(crono = 0);
+	} while(crono == 0);
 }
 
 
 void temporizador(int numIntentos) {
 	int seg, x = 1000;
 	
-	for(seg = 15; seg <= 15 && seg >= 0; seg--) {
+	for(seg = 15; seg >= 0; seg--) {
 		printf("%02d\r", seg);
 		Sleep(x);
 	}
@@ -190,88 +191,57 @@ typedef struct {
     int columnas;
 }datos;
 
-datos *dat;
-void graficos(datos *dat);
+void graficos();
 
-
-
-// funcion donde eliges el barrio
-int menu2() {
+void graficos() {
     FILE *fp;
     char filename[50];
-    char c;
-    int filas = 0, columnas = 0, k = 0;
-    int num;
-    
-    printf("A continuacion le vamos a mostrar la lista de los barrios sobre los que tenemos informacion del distrito de Arganzuela:\n");
-    printf("1. Atocha\n");
-    printf("2. Delicias\n");
-    printf("3. Embajadores\n");
-    printf("4. Legazpi\n");
-    printf("5. Salir del programa\n");
-    scanf("%d", &num);
-    printf("\n\n"); 
-    if (num==5) {
-    	banner();
-    	printf("\n\n\n");
-    	printf("Muchas gracias por utilizar ABM. Esperamos volver a verle.\n");
-	}else if(num==1||num==2||num==3||num==4){
-	    printf("Disponemos de los datos analizados desde el comienzo de la aplicacion hasta ahora.\nPor favor, selecciona uno de los siguientes tres years: 2021, 2022 o 2023.\nLuego, indica el periodo en el que deseas consultar esta informacion. Utiliza el numero 01 para referirte a principios de year (enero), 06 para mediados de year (junio) y 12 para finales de year (diciembre).\n\n ");
-        printf("Introduce el nombre del archivo que deseas analizar (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
-        scanf("%s", filename);
-	}
-    
+    char line[100];
+
+	printf("Disponemos de los datos analizados desde el comienzo de la aplicacion hasta ahora.\nPor favor, selecciona uno de los siguientes tres years: 2021, 2022 o 2023.\nLuego, indica el periodo en el que deseas consultar esta informacion. Utiliza el numero 01 para referirte a principios de year (enero), 06 para mediados de year (junio) y 12 para finales de year (diciembre).\n\n ");
+    printf("Introduce el nombre del archivo que deseas analizar (XXXXYY_barrio.txt ; XXXX = year, YY = month): ");
+    printf("Introduce el nombre del archivo que deseas analizar: ");
+    scanf("%s", filename);
+    printf("\n");
+
     fp = fopen(filename, "r");
     if (fp == NULL) {
         perror("No se ha podido abrir el archivo.\n");
         exit(1);
     }
 
-    // Contar filas y columnas
-    while ((c = fgetc(fp)) != EOF) {
-        columnas++;
-        if (c == '\n') {
-            filas++;
-        }
+    while (fgets(line, sizeof(line), fp) != NULL) {
+        printf("%s", line);
     }
 
-    dat = (datos*)malloc(sizeof(datos));
-    dat->filas = filas;
-    dat->columnas = columnas;
-    dat->data = malloc(filas * columnas * sizeof(char));
-
-    rewind(fp);
-
-    // Leer archivo y guardar datos
-    while ((c = fgetc(fp)) != EOF) {
-        *(dat->data + k) = c;
-        k++;
-    }
-    
     fclose(fp);
-    
-    graficos(dat);
-
-    free(dat->data);
-    free(dat);
-    
-    operaciones();
-
-    return 0;
 }
 
+void menu2() {
+    int num;
 
+    printf("A continuacion, le vamos a mostrar la lista de los barrios sobre los que tenemos informacion del distrito de Arganzuela:\n");
+    printf("1. Atocha\n");
+    printf("2. Delicias\n");
+    printf("3. Embajadores\n");
+    printf("4. Legazpi\n");
+    printf("5. Salir del programa\n");
+    scanf("%d", &num);
+    printf("\n\n");
 
-void graficos(datos *dat) {
-    int i, j;
-    for (i = 0; i < dat->filas; i++) {
-        for (j = 0; j < dat->columnas; j++) {
-            printf("%c", *(dat->data + i * dat->columnas + j));
-        }
-        printf("\n");
+    if (num == 5) {
+        banner();
+        printf("\n\n\n");
+        printf("Muchas gracias por utilizar ABM. Esperamos volver a verle.\n");
+        exit(1);
+    } else if (num >= 1 && num <= 4) {
+        graficos();
+        operaciones();
+    } else {
+        printf("Opcion invalida. Saliendo del programa.\n");
+        exit(1);
     }
 }
-
 
 int operaciones() {
 	
@@ -294,7 +264,7 @@ int operaciones() {
 	scanf("%s", nombre);
 	printf("\n");
 	
-	printf("Introduce el dato el cual desea calcular: (ph, conductividad, turbidez o coliforme): ");
+	printf("Introduce el dato el cual desea calcular: (ph, conductividad, turbidez o coliformes): ");
 	scanf("%s", categoria);
 	printf("\n");
 	
@@ -332,7 +302,7 @@ double MediaMinMax(char c[], char dato[], int a){
 	
 	cont = 0;
 	
-	if ( (f = fopen(c, "r") ) != NULL){
+	if ((f = fopen(c, "r") ) != NULL){
 		do{
 			fscanf(f, "%s", titulo);
 			cont++;
