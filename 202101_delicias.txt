@@ -6,7 +6,7 @@ fuente4	        7.77	214	        0	        1
 fuente5	        6.14	178	        1		1
 fuente6	        6.96	117	        0	        0
 fuente7	        7.43	164	        0		0
-fuente8	        757	141	        2	        2
+fuente8	        7.57	141	        2	        2
 fuente9	        7.18	178	        0	        0
 fuente10	6.66	188	        0	        0
 fuente11	7.87	226	        0	        0
